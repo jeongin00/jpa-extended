@@ -20,3 +20,7 @@ public class UserRepositoryCustom implements IUserRepositoryCustom {
                 .fetch();
     }
 }
+
+/*이 메서드는 “이름이 정확히 일치하는 유저”를 QueryDSL로 찾아주는 쿼리*/
+
+

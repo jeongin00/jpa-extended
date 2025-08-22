@@ -1,5 +1,6 @@
 package com.example.demo.repository.user.entity;
 
+import com.example.demo.repository.post.entity.Post;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,8 +24,8 @@ public class User {
     private String specialty;
     private LocalDateTime createdAt;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Allocated> allocates;
+    @OneToMany(fetch = FetchType.LAZY , mappedBy = "user")
+    private List<Allocated> allocateds;
 
 //  @OneToMany(fetch = FetchType.LAZY, mappedBy = "created_by")
 //  private List<Post> post;

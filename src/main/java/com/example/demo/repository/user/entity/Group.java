@@ -11,18 +11,17 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Group {
+public class Group{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String desc;
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAT;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "group", cascade = CascadeType.REMOVE)
     private List<Allocated> allocates;
-
-    public static Group create(String name, String desc) {
+    public static Group create(String name, String desc){
         return new Group(
                 null,
                 name,
@@ -32,7 +31,7 @@ public class Group {
         );
     }
 
-    public void update(String name, String desc) {
+    public void update(String name, String desc){
         this.name = name;
         this.desc = desc;
     }

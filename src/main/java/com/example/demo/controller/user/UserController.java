@@ -3,6 +3,7 @@ package com.example.demo.controller.user;
 import com.example.demo.controller.user.dto.UserCreateRequestDto;
 import com.example.demo.controller.user.dto.UserResponseDto;
 import com.example.demo.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -35,7 +36,7 @@ public class UserController {
     }
 
     @PostMapping("")
-    public ResponseEntity<UserResponseDto> create(@RequestBody UserCreateRequestDto request) {
+    public ResponseEntity<UserResponseDto> create(@RequestBody @Valid UserCreateRequestDto request) {
         UserResponseDto user = userService.save(request);
         return ResponseEntity.ok(user);
     }

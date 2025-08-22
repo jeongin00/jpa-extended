@@ -2,6 +2,7 @@ package com.example.demo.controller.user;
 
 import com.example.demo.controller.user.dto.*;
 import com.example.demo.service.GroupService;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -31,7 +32,7 @@ public class GroupController {
     }
 
     @PostMapping("")
-    public ResponseEntity<GroupResponseDto> create(@RequestBody GroupCreateRequestDto request) {
+    public ResponseEntity<GroupResponseDto> create(@RequestBody @Valid GroupCreateRequestDto request) {
         GroupResponseDto group = groupService.save(request);
         return ResponseEntity.ok(group);
     }

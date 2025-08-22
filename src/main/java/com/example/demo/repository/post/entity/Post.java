@@ -8,11 +8,13 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
+import static com.example.demo.repository.user.entity.QUser.user;
+
 @Getter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Post {
+public class Post{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -27,12 +29,13 @@ public class Post {
     private User createdBy;
     private LocalDateTime createdAt;
 
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "updated_by")
     private User updatedBy;
     private LocalDateTime updatedAt;
 
-    public static Post create(String title, String content, User user) {
+    public static Post create(String title, String content, User user){
         return new Post(
                 null,
                 title,
